@@ -16,10 +16,10 @@ with open('kmeans_model.pkl', 'rb') as f:
     loaded_model = pickle.load(f)
     
 #set title
-st.title("k-means Clustering Visualizer by Fusaila Hayeeyakoh")
+st.title("k-Means Clustering Visualizer by Fusaila Hayeeyakoh")
 
 #set the page config
-st.set_page_config(page_title= "K-means Clustering", layout= "centered")
+st.set_page_config(page_title= "K-Means Clustering", layout= "centered")
 
 #display cluster centers
 st.subheader("Example Data for Visualization")
@@ -34,7 +34,7 @@ y_kmeans = loaded_model.predict(X)
 # Plotting
 fig, ax = plt.subplots()
 scatter = ax.scatter(X[:, 0], X[:, 1], c=y_kmeans, cmap='viridis')
-ax.scatter(loaded_model.n_clusters_[:, 0], loaded_model.n_clusters_[:, 1], s=300, c='red')
+ax.scatter(loaded_model.cluster_centers_[:, 0], loaded_model.cluster_centers_[:, 1], s=300, c='red')
 
 ax.set_title('k-Means Clustering')
 ax.legend()
